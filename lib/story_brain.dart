@@ -1,7 +1,7 @@
 import 'story.dart';
 
 class StoryBrain {
-  int storyNumber = 0;
+  int _storyNumber = 0;
 
   List<Story> _storyData = [
     Story(
@@ -36,38 +36,38 @@ class StoryBrain {
   ];
 
   String getStory() {
-    return _storyData[storyNumber].storyTitle;
+    return _storyData[_storyNumber].storyTitle;
   }
 
   String getChoice1() {
-    return _storyData[storyNumber].choice1;
+    return _storyData[_storyNumber].choice1;
   }
 
   String getChoice2() {
-    return _storyData[storyNumber].choice2;
+    return _storyData[_storyNumber].choice2;
   }
 
   // if the storyNumber is equal to 3 or 4 or 5, that means it's the end of the game and it should call a method called restart() that resets the storyNumber to 0.
   void nextStory(int choiceNumber) {
-    if (storyNumber == 00 && choiceNumber == 1) {
-      storyNumber = 2;
-    } else if (storyNumber == 0 && choiceNumber == 2) {
-      storyNumber = 1;
-    } else if (storyNumber == 1 && choiceNumber == 1) {
-      storyNumber = 3;
-    } else if (storyNumber == 1 && choiceNumber == 2) {
-      storyNumber = 2;
-    } else if (storyNumber == 2 && choiceNumber == 1) {
-      storyNumber = 5;
-    } else if (storyNumber == 2 && choiceNumber == 2) {
-      storyNumber = 4;
+    if (_storyNumber == 00 && choiceNumber == 1) {
+      _storyNumber = 2;
+    } else if (_storyNumber == 0 && choiceNumber == 2) {
+      _storyNumber = 1;
+    } else if (_storyNumber == 1 && choiceNumber == 1) {
+      _storyNumber = 3;
+    } else if (_storyNumber == 1 && choiceNumber == 2) {
+      _storyNumber = 2;
+    } else if (_storyNumber == 2 && choiceNumber == 1) {
+      _storyNumber = 5;
+    } else if (_storyNumber == 2 && choiceNumber == 2) {
+      _storyNumber = 4;
     } else if (choiceNumber == 3 || choiceNumber == 4 || choiceNumber == 5) {
       restart();
     }
   }
 
   void restart() {
-    storyNumber = 0;
+    _storyNumber = 0;
   }
 }
 
